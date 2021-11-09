@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='amazon_css.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+
+<div id="background">
+<head>
+  <br>
+    <title>Amazon Product Review Analysis</title>
+</head>
+
+<div id="home">
+  <a href = "{{ url_for('main') }}"><i class="fas fa-home"> HOME</i></a>
+</div>
+
+<h1>Amazon Product Review Analysis</h1>
+
+<br>
+<h3>This website will help you to analyse the reviews of products found on Amazon</h2>
+<br>
+<br>
+
+</div>
+
+
+
+<div id="search">
+<form action="/product-search", method="POST">
+<br>
+<br>
+  <label for="search_query">Which product are you looking for ? </label>
+  <input type="text" id="search_query" name="search_query">
+  
+  <input type="submit" value="Search">
+</form>
+</div>
+
+
+
+{% if ASIN %}
+
+<div id="results">
+
+<br><br><br>	
+<h2>Showing results for : {{ASIN}}</h2><br><br>
+
+<h2>Brand: {{brand}}</h2><br>
+<h2>Model: {{model}}</h2>
+<br>
+
+<h2>Average Rating: {{average_rating}}</h2><br>
+
+
+<img src="{{url_for('static', filename='rating_distribution.png')}}" class="center">
+<br><br>
+<img src="{{url_for('static', filename='sentiment.png')}}" class="center">
+<br><br>
+<img src="{{url_for('static', filename='word_cloud.png')}}" class="center">
+<br><br>
+<img src="{{url_for('static', filename='positive.png')}}" class="center">
+<br><br>
+<img src="{{url_for('static', filename='negative.png')}}" class="center">
+
+
+
+</div>
+
+{% endif %}
+
+
+</html>
