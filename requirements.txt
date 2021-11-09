@@ -10,3 +10,4 @@ nltk
 scikit-learn
 opencv-python
 seaborn
+amazon_product_review_scraper
